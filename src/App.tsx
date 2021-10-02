@@ -1,7 +1,8 @@
 import React from 'react';
+import { Routes } from './routes';
 
 export function App() {
   return (
-    <h1>Work</h1>
+    <Routes />
   );
 }
