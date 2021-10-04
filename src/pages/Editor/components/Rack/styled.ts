@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Color } from 'uikit/constants';
 import CanvasGridImg from './assets/canvas_grid.svg';
 
-export const RackWrap = styled.div`
+export const CanvasContainer = styled.div`
   flex: 1;
   background-color: ${Color.GHOST};
   cursor: pointer;
