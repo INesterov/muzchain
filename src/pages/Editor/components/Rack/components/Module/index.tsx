@@ -13,6 +13,7 @@ type Props = {
   iconPath: string;
   type: TModule['type'];
   name: TModule['name'];
+  toggleInput: (id: string, isEnable: any) => void;
 }
 
 export function Module(props: Props): JSX.Element {
@@ -23,8 +24,16 @@ export function Module(props: Props): JSX.Element {
     type,
     name,
     id,
+    toggleInput,
   } = props;
   const color = getColorModule(type);
+
+  React.useEffect(
+    () => {
+      toggleInput(id, isEbabled);
+    },
+    [id, isEbabled],
+  );
 
   const handleDragEnd = React.useCallback(
     (event: Konva.KonvaEventObject<DragEvent>) => {

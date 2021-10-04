@@ -15,7 +15,12 @@ import { CanvasContainer } from './styled';
 
 const CANVAS_CONTAINER = 'canvasContainer';
 
-export function Rack(): JSX.Element {
+type Props = {
+  toggleInput: (id: string, isEnable: any) => void;
+}
+
+export function Rack(props: Props): JSX.Element {
+  const { toggleInput } = props;
   const rackConfigs = useStore(rackConfigsStore);
   const dragAndDrop = useStore(dragAndDropStore);
   const modulesList = useStoreMap(
@@ -115,7 +120,7 @@ export function Rack(): JSX.Element {
         onWheel={handleCanvasWheel}
       >
         <Layer>
-          <DrawModules modulesList={modulesList} />
+          <DrawModules modulesList={modulesList} toggleInput={toggleInput} />
         </Layer>
       </Stage>
     </>

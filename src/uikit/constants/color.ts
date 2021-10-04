@@ -1,5 +1,6 @@
 export enum Color {
   MAIN = '#282e35',
+  STOP = '#be5149',
   CLEAR = '#ffffff',
   DEVIDER = '#505660',
   PRIMARY = '#94fcfd',
