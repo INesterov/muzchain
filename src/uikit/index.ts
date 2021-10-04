@@ -1,3 +1,3 @@
 export * from './Typography';
-export { Devider } from './Devider';
 export { IconButton } from './IconButton';
+export { Collapse } from './Collapse';

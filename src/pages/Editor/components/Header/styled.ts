@@ -10,8 +10,3 @@ export const HeaderWrap = styled.div`
   padding: 0 ${SpacingGap.S5};
   justify-content: space-between;
 `;
-
-export const GeneralTools = styled.div`
-  display: flex;
-  align-items: center;
-`;
