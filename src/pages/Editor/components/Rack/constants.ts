@@ -1,3 +1,0 @@
-export const CANVAS_GRID_CELL_WIDTH = 25;
-export const CANVAS_GRID_CELL_HEIGHT = 25;
-export const CANVAS_GRIP_ROUNDING_ACCURACY = 5;

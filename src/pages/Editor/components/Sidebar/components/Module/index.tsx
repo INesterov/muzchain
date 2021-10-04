@@ -1,5 +1,6 @@
 import React from 'react';
-import { ModuleType, ModuleName, Module as TModule } from 'types/Module.types';
+import { ModuleType, ModuleName } from 'types/Module.types';
+import { DragAndDrop } from 'store/dragAndDrop/dragAndDrop.types';
 import { getModuleIcon } from './helpers/getModuleIcon';
 import {
   ModuleWrap,
@@ -12,7 +13,7 @@ type Props = {
   type: ModuleType;
   name: ModuleName;
   isDragging?: boolean;
-  onDragStart?: (module: TModule) => void;
+  onDragStart?: (module: DragAndDrop['draggableModule']) => void;
   onDragEnd?: () => void;
 }
 

@@ -1,6 +1,9 @@
 import { Module } from 'types/Module.types';
 
 export type DragAndDrop = {
-  draggableModule?: Module;
+  draggableModule?: {
+    name: Module['name'];
+    type: Module['type'];
+  };
   isDragging: boolean;
 }

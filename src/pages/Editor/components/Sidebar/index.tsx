@@ -2,7 +2,8 @@ import React from 'react';
 import { Collapse } from 'uikit';
 import { useStore } from 'effector-react';
 import { dragAndDropStore, dragStart, dragEnd, useAutoCleanDragAndDrop } from 'store/dragAndDrop';
-import { ModuleType, ModuleName, Module as TModule } from 'types/Module.types';
+import { DragAndDrop } from 'store/dragAndDrop/dragAndDrop.types';
+import { ModuleType, ModuleName } from 'types/Module.types';
 import { Module } from './components/Module';
 import { DraggableModule } from './components/DraggableModule';
 import {
@@ -19,7 +20,7 @@ export function Sidebar(): JSX.Element {
   );
 
   const onDragStart = React.useCallback(
-    (module: TModule) => {
+    (module: DragAndDrop['draggableModule']) => {
       dragStart(module);
     },
     [],

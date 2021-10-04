@@ -1,1 +1,1 @@
-export { rackConfigsStore, updateRackPosition } from './store';
+export { rackConfigsStore, updateRackPosition, changeZoom } from './store';

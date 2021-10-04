@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { VscChevronRight, VscChevronDown } from 'react-icons/vsc';
 import { Color } from '../constants';
 import {

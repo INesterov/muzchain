@@ -3,7 +3,7 @@ import {
   CANVAS_GRID_CELL_HEIGHT,
   CANVAS_GRID_CELL_WIDTH,
   CANVAS_GRIP_ROUNDING_ACCURACY,
-} from '../constants';
+} from 'constants/rackConstants';
 
 export const drawBackgroundGrid = (stage: Konva.Stage | null): void => {
   if (stage) {
