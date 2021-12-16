@@ -1,1 +1,8 @@
-export { modulesStore, addModule, updateModulePosition, toggleModule } from './store';
+export {
+  modulesStore,
+  addModule,
+  updateModulePosition,
+  toggleModule,
+  setActiveModule,
+  resetActiveModule,
+} from './store';

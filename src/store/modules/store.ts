@@ -5,6 +5,7 @@ import { Modules } from './modules.types';
 
 export const modulesStore = createStore<Modules>({
   entities: {},
+  activeModuleId: undefined,
 });
 
 type UpdateModulePosition = {
@@ -12,7 +13,13 @@ type UpdateModulePosition = {
   position: IVector2;
 }
 
-export const { addModule, updateModulePosition, toggleModule } = createApi(modulesStore, {
+export const {
+  addModule,
+  updateModulePosition,
+  toggleModule,
+  setActiveModule,
+  resetActiveModule,
+} = createApi(modulesStore, {
   addModule: (state, module: Module) => ({ ...state, entities: { ...state.entities, [module.id]: module }}),
   updateModulePosition: (state: Modules, payload: UpdateModulePosition): Modules => {
     return {
@@ -36,6 +43,18 @@ export const { addModule, updateModulePosition, toggleModule } = createApi(modul
           isEnabled: !state.entities[moduleId].isEnabled,
         },
       },
+    };
+  },
+  setActiveModule: (state: Modules, moduleId: string): Modules => {
+    return {
+      ...state,
+      activeModuleId: moduleId,
+    };
+  },
+  resetActiveModule: (state: Modules): Modules => {
+    return {
+      ...state,
+      activeModuleId: undefined,
     };
   },
 });

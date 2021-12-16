@@ -4,6 +4,14 @@ import { ModuleType } from 'types/Module.types';
 import { useStoreMap } from 'effector-react';
 import { modulesStore } from 'store/modules';
 
+declare global {
+  interface Window {
+    inputs?: any;
+  }
+}
+
+window.inputs = {} as Record<string, Wad>;
+
 export const usePlay = () => {
   const [ isPlayed, setPlayed ] = React.useState(false);
   const inputsRef = React.useRef<Record<string, Wad>>({});
@@ -17,7 +25,26 @@ export const usePlay = () => {
     () => {
       inputsModules.forEach((input) => {
         if (!inputsRef.current[input.id]) {
-          inputsRef.current[input.id] = new Wad({source : 'sawtooth'});
+          inputsRef.current[input.id] = new Wad({
+            source : 'square',
+            tuna   : {
+              Overdrive : {
+                  outputGain: 0.5,         //0 to 1+
+                  drive: 1,              //0 to 1
+                  curveAmount: 1,          //0 to 1
+                  algorithmIndex: 0,       //0 to 5, selects one of our drive algorithms
+                  bypass: 0,
+              },
+              Chorus : {
+                  intensity: 1,  //0 to 1
+                  rate: 4,         //0.001 to 8
+                  stereoPhase: 100,  //0 to 180
+                  bypass: 0,
+              },
+            },
+          });
+
+          window['inputs'] = inputsRef.current;
         }
       });
     },
@@ -29,12 +56,12 @@ export const usePlay = () => {
       if (isPlayed) {
         inputsModules.forEach((input) => {
           if (input.isEnabled) {
-            inputsRef.current[input.id].play({ loop: true });
+            window['inputs'][input.id].play({ loop: true, pitch : 'A4', label : 'A4' });
           }
         });
       } else {
         inputsModules.forEach((input) => {
-          inputsRef.current[input.id].stop();
+          window['inputs'][input.id].stop();
         });
       }
     },
@@ -57,11 +84,10 @@ export const usePlay = () => {
 
   const toggleInput = React.useCallback(
     (id: string, isEnable) => {
-      debugger;
       if (!isPlayed) return;
 
       if (isEnable) {
-        inputsRef.current[id].play({ loop: true });
+        inputsRef.current[id].play({ loop: true, pitch: 'A5', label: 'A5' });
       } else {
         inputsRef.current[id].stop();
       }

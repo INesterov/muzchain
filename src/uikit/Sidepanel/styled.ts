@@ -14,7 +14,7 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${SpacingGap.S4};
+  padding: ${SpacingGap.S2} ${SpacingGap.S4};
   border-bottom: 1px solid #505660;
 `;
 

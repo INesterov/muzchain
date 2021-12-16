@@ -92,6 +92,10 @@ declare module 'web-audio-daw' {
     setReverb: (wet: number) => void;
     setDelay: (delayTime?: number, wet?: number, feedback?: number) => void;
     reverse: () => void;
+    setUpExternalFxOnPlay: (args: ConstructorArgs, context: AudioContext) => void;
+    soundSource: {
+      connect: (node: unknown) => void;
+    }
   }
 
   export = Wad;
