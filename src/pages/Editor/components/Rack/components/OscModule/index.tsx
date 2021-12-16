@@ -1,4 +1,6 @@
 import React from 'react';
+import { openModal } from 'store/modal';
+import { ModalsType } from 'constants/modals';
 import { Module as TModule } from 'types/Module.types';
 import { Module } from '../Module';
 
@@ -11,6 +13,13 @@ export function OscModule(props: Props):JSX.Element {
   const { module, toggleInput } = props;
   const { position, isEnabled, type,  name} = module;
 
+  const openSettings = React.useCallback(
+    () => {
+      openModal(ModalsType.OSC_SETTINGS);
+    },
+    [],
+  );
+
   return (
     <Module
       id={module.id}
@@ -20,6 +29,7 @@ export function OscModule(props: Props):JSX.Element {
       type={type}
       name={name}
       toggleInput={toggleInput}
+      openSettings={openSettings}
     />
   );
 }

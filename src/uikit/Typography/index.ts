@@ -5,3 +5,10 @@ export const Text = styled.p`
   font-weight: 100;
   line-height: 1.2;
 `;
+
+export const H3 = styled.h3`
+  font-size: 16px;
+  font-weight: normal;
+  color: #ffffff;
+  letter-spacing: 0.7px;
+`;
