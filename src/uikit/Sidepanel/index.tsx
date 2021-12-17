@@ -7,7 +7,7 @@ import { SidepanelContainer, Header, Content } from './styled';
 type Props = {
   title: string;
   onClose: () => void;
-  children: JSX.Element;
+  children: JSX.Element[];
 }
 
 export function Sidepanel(props: Props): JSX.Element {

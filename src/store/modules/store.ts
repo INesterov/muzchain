@@ -19,6 +19,7 @@ export const {
   toggleModule,
   setActiveModule,
   resetActiveModule,
+  updateModuleSettings,
 } = createApi(modulesStore, {
   addModule: (state, module: Module) => ({ ...state, entities: { ...state.entities, [module.id]: module }}),
   updateModulePosition: (state: Modules, payload: UpdateModulePosition): Modules => {
@@ -29,6 +30,18 @@ export const {
         [payload.id]: {
           ...state.entities[payload.id],
           position: payload.position,
+        },
+      },
+    };
+  },
+  updateModuleSettings: (state: Modules, settings: Module['settings']) => {
+    return {
+      ...state,
+      entities: {
+        ...state.entities,
+        [state.activeModuleId as string]: {
+          ...state.entities[state.activeModuleId as string],
+          settings,
         },
       },
     };

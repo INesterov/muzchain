@@ -6,5 +6,5 @@ export enum Color {
   PRIMARY = '#94fcfd',
   GHOST = '#3b424f',
   FORM = '#40444C',
-  SECONDARY = '##7397C2'
+  SECONDARY = '#7397C2'
 }

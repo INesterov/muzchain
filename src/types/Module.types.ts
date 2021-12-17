@@ -9,13 +9,19 @@ export enum ModuleName {
   OSC = 'osc',
 }
 
+export type OSCModule = {
+  settings: {
+    source: string;
+  }
+}
+
 export type Module = {
   id: string;
   type: ModuleType;
   name: ModuleName;
   position: IVector2;
   isEnabled: boolean;
-}
+} & (OSCModule);
 
 export const MODULES_WITH_INPUT = new Set<ModuleName>([]);
 

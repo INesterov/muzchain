@@ -5,6 +5,8 @@ import { closeModal } from 'store/modal';
 import { resetActiveModule, modulesStore } from 'store/modules';
 import { Sidepanel } from 'uikit';
 import { Analyser } from 'features/Analyser';
+import { SourceSelect } from './components/SourceSelect';
+import { SettingsBlock } from './styled';
 
 export function OscSettings(): JSX.Element {
   const moduleState = useStore(modulesStore);
@@ -22,6 +24,9 @@ export function OscSettings(): JSX.Element {
   return (
     <Sidepanel title='OSC' onClose={closeSettings}>
       <Analyser input={input} />
+      <SettingsBlock>
+        <SourceSelect />
+      </SettingsBlock>
     </Sidepanel>
   );
 }

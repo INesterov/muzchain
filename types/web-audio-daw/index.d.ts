@@ -95,6 +95,7 @@ declare module 'web-audio-daw' {
     setUpExternalFxOnPlay: (args: ConstructorArgs, context: AudioContext) => void;
     soundSource: {
       connect: (node: unknown) => void;
+      type: string;
     }
   }
 

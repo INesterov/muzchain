@@ -26,22 +26,7 @@ export const usePlay = () => {
       inputsModules.forEach((input) => {
         if (!inputsRef.current[input.id]) {
           inputsRef.current[input.id] = new Wad({
-            source : 'square',
-            tuna   : {
-              Overdrive : {
-                  outputGain: 0.5,         //0 to 1+
-                  drive: 1,              //0 to 1
-                  curveAmount: 1,          //0 to 1
-                  algorithmIndex: 0,       //0 to 5, selects one of our drive algorithms
-                  bypass: 0,
-              },
-              Chorus : {
-                  intensity: 1,  //0 to 1
-                  rate: 4,         //0.001 to 8
-                  stereoPhase: 100,  //0 to 180
-                  bypass: 0,
-              },
-            },
+            source : input.settings.source,
           });
 
           window['inputs'] = inputsRef.current;

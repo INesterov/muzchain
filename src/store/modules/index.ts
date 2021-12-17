@@ -5,4 +5,5 @@ export {
   toggleModule,
   setActiveModule,
   resetActiveModule,
+  updateModuleSettings,
 } from './store';

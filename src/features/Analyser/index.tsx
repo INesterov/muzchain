@@ -41,7 +41,7 @@ export function Analyser(props: Props): JSX.Element {
           requestAnimationFrame(draw);
 
           analyser.getByteTimeDomainData(dataArray);
-          console.log(dataArray);
+
           canvasCtx.fillStyle = '#0d1117';
           canvasCtx.fillRect(0, 0, 300, 150);
           canvasCtx.lineWidth = 2;
