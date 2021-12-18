@@ -6,8 +6,7 @@ import { resetActiveModule, modulesStore } from 'store/modules';
 import { Sidepanel } from 'uikit';
 import { Analyser } from 'features/Analyser';
 import { SourceSelect } from './components/SourceSelect';
-import { VolumeKnob } from './components/VolumeKnob';
-import { PanningKnob } from './components/PanningKnob';
+import { Volume } from './components/Volume';
 import { SettingsBlock } from './styled';
 
 export function OscSettings(): JSX.Element {
@@ -27,11 +26,10 @@ export function OscSettings(): JSX.Element {
     <Sidepanel title='OSC' onClose={closeSettings}>
       <Analyser input={input} />
       <SettingsBlock>
-        <VolumeKnob />
-        <PanningKnob />
+        <SourceSelect />
       </SettingsBlock>
       <SettingsBlock>
-        <SourceSelect />
+        <Volume />
       </SettingsBlock>
     </Sidepanel>
   );

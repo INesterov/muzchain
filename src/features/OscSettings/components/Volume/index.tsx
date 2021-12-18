@@ -2,10 +2,10 @@ import React from 'react';
 import Wad from 'web-audio-daw';
 import { useStore } from 'effector-react';
 import { modulesStore, updateModuleSettings } from 'store/modules';
-import { Knob } from 'uikit';
+import { Slider } from 'uikit';
 
 
-export function VolumeKnob(): JSX.Element {
+export function Volume(): JSX.Element {
   const moduleState = useStore(modulesStore);
   const activeModuleId = moduleState.activeModuleId as string;
   const input = window.inputs[activeModuleId] as Wad;
@@ -16,7 +16,7 @@ export function VolumeKnob(): JSX.Element {
     (newValue: number) => {
       const newSettings = { ...settings, volume: newValue };
 
-      input?.setVolume(newValue);
+      input?.setVolume(newValue / 100);
 
       updateModuleSettings(newSettings);
     },
@@ -24,13 +24,12 @@ export function VolumeKnob(): JSX.Element {
   );
 
   return (
-    <Knob
-      value={settings?.volume ?? 0}
+    <Slider
       min={0}
       max={100}
-      step={1}
-      label='Volume'
+      value={settings?.volume}
       onChange={updateVolume}
-      />
+      label='Volume'
+    />
   );
 }

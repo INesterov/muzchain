@@ -27,7 +27,7 @@ export const usePlay = () => {
         if (!inputsRef.current[input.id]) {
           inputsRef.current[input.id] = new Wad({
             source : input.settings.source,
-            volume: input.settings.volume,
+            volume: input.settings.volume / 100,
             panning: input.settings.panning,
           });
 
