@@ -7,9 +7,9 @@ type Props = {
 }
 
 export function IconButton(props: Props): JSX.Element {
-  const { children } = props;
+  const { children, onClick } = props;
 
   return (
-    <StyledButton>{children}</StyledButton>
+    <StyledButton onClick={onClick}>{children}</StyledButton>
   );
 }

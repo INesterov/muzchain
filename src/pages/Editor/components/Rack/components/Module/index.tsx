@@ -14,6 +14,7 @@ type Props = {
   type: TModule['type'];
   name: TModule['name'];
   toggleInput: (id: string, isEnable: any) => void;
+  openSettings: () => void;
 }
 
 export function Module(props: Props): JSX.Element {
@@ -25,6 +26,7 @@ export function Module(props: Props): JSX.Element {
     name,
     id,
     toggleInput,
+    openSettings,
   } = props;
   const color = getColorModule(type);
 
@@ -56,6 +58,7 @@ export function Module(props: Props): JSX.Element {
       draggable
       onDragEnd={handleDragEnd}
       onClick={() => toggleModule(id)}
+      onDblClick={openSettings}
     >
       <Circle fill={Color.GHOST} stroke={isEbabled ? color : Color.CLEAR} radius={36} />
       <Path

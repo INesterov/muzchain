@@ -44,7 +44,6 @@ export function Sidebar(): JSX.Element {
           />
         </ModulesGroup>
       </Collapse>
-      <Collapse title="Outputs"><h1></h1></Collapse>
     </SidebarWrap>
   );
 }

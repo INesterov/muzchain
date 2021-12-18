@@ -4,6 +4,14 @@ import { ModuleType } from 'types/Module.types';
 import { useStoreMap } from 'effector-react';
 import { modulesStore } from 'store/modules';
 
+declare global {
+  interface Window {
+    inputs?: any;
+  }
+}
+
+window.inputs = {} as Record<string, Wad>;
+
 export const usePlay = () => {
   const [ isPlayed, setPlayed ] = React.useState(false);
   const inputsRef = React.useRef<Record<string, Wad>>({});
@@ -17,7 +25,15 @@ export const usePlay = () => {
     () => {
       inputsModules.forEach((input) => {
         if (!inputsRef.current[input.id]) {
-          inputsRef.current[input.id] = new Wad({source : 'sawtooth'});
+          inputsRef.current[input.id] = new Wad({
+            source : input.settings.source,
+            volume: input.settings.volume / 100,
+            panning: input.settings.panning,
+            pitch: input.settings.pitch,
+            detune: input.settings.detune,
+          });
+
+          window['inputs'] = inputsRef.current;
         }
       });
     },
@@ -29,12 +45,12 @@ export const usePlay = () => {
       if (isPlayed) {
         inputsModules.forEach((input) => {
           if (input.isEnabled) {
-            inputsRef.current[input.id].play({ loop: true });
+            window['inputs'][input.id].play({ loop: true });
           }
         });
       } else {
         inputsModules.forEach((input) => {
-          inputsRef.current[input.id].stop();
+          window['inputs'][input.id].stop();
         });
       }
     },
@@ -57,13 +73,12 @@ export const usePlay = () => {
 
   const toggleInput = React.useCallback(
     (id: string, isEnable) => {
-      debugger;
       if (!isPlayed) return;
 
       if (isEnable) {
-        inputsRef.current[id].play({ loop: true });
+        window['inputs'][id].play({ loop: true });
       } else {
-        inputsRef.current[id].stop();
+        window['inputs'][id].stop();
       }
     },
     [inputsRef.current, isPlayed],
