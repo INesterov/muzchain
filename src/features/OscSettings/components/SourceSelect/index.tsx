@@ -21,13 +21,14 @@ export function SourceSelect(): JSX.Element {
 
   const updateSource = React.useCallback(
     (newValue: Option) => {
+      debugger;
       const newSettings = { ...settings, source: newValue.value };
 
       input.soundSource.type = newValue.value;
 
       updateModuleSettings(newSettings);
     },
-    [input],
+    [input, settings],
   );
 
   return (

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Color } from '../constants';
 
 export const SelectContainer = styled.div`
+  width: 100%;
+
   & div > .select__control {
     background: transparent;
     border: 1px solid ${Color.PRIMARY};

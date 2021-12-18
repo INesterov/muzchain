@@ -27,6 +27,8 @@ export const usePlay = () => {
         if (!inputsRef.current[input.id]) {
           inputsRef.current[input.id] = new Wad({
             source : input.settings.source,
+            volume: input.settings.volume,
+            panning: input.settings.panning,
           });
 
           window['inputs'] = inputsRef.current;
@@ -41,7 +43,7 @@ export const usePlay = () => {
       if (isPlayed) {
         inputsModules.forEach((input) => {
           if (input.isEnabled) {
-            window['inputs'][input.id].play({ loop: true, pitch : 'A4', label : 'A4' });
+            window['inputs'][input.id].play({ loop: true });
           }
         });
       } else {
@@ -72,9 +74,9 @@ export const usePlay = () => {
       if (!isPlayed) return;
 
       if (isEnable) {
-        inputsRef.current[id].play({ loop: true, pitch: 'A5', label: 'A5' });
+        window['inputs'][id].play({ loop: true });
       } else {
-        inputsRef.current[id].stop();
+        window['inputs'][id].stop();
       }
     },
     [inputsRef.current, isPlayed],

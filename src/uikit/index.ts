@@ -3,3 +3,4 @@ export { IconButton } from './IconButton';
 export { Collapse } from './Collapse';
 export { Sidepanel } from './Sidepanel';
 export { Select } from './Select';
+export { Knob } from './Knob';

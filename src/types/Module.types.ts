@@ -12,6 +12,8 @@ export enum ModuleName {
 export type OSCModule = {
   settings: {
     source: string;
+    volume: number;
+    panning: number;
   }
 }
 

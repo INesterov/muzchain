@@ -16,6 +16,8 @@ export const createModule = (options: Options): Module => {
     position: options.position,
     settings: {
       source: 'sine',
+      volume: 1,
+      panning: 0,
     },
   };
 };

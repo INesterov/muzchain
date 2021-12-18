@@ -12,3 +12,9 @@ export const H3 = styled.h3`
   color: #ffffff;
   letter-spacing: 0.7px;
 `;
+
+export const Label = styled.p`
+  font-size: 14px;
+  font-weight: lighter;
+  color: #ffffff;
+`;
