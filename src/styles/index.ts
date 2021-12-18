@@ -1,12 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import { Color } from 'uikit/constants';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
   body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
+    background-color: ${Color.MAIN};
+    color: ${Color.PRIMARY};
+    font-family: 'Inconsolata', monospace;
   }
   h1,
   h2,
