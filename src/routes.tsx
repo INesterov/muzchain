@@ -4,14 +4,14 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import { Editor } from 'pages/Editor';
+import { Main } from 'pages/Main';
 
 export const Routes = (): JSX.Element => {
   return (
     <Router>
       <Switch>
         <Route path="/">
-          <Editor />
+          <Main />
         </Route>
       </Switch>
     </Router>
