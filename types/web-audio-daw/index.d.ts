@@ -85,9 +85,9 @@ declare module 'web-audio-daw' {
     pause: (label?: string) => void;
     unpause: (args?: PlayArgs) => void;
     setVolume: (volume: number, timeConstant?: string, label?: string) => void;
-    setPitch: (pitch: string, timeConstant?: string, label?: string) => void;
+    setPitch: (pitch: number, timeConstant?: string, label?: string) => void;
     setDetune: (detune: number, timeConstant?: string, label?: string) => void;
-    setPanning: (panning: Record<string, unknown> | any[], timeConstant?: string) => void;
+    setPanning: (panning: number, timeConstant?: string) => void;
     setRate: (rate: number) => void;
     setReverb: (wet: number) => void;
     setDelay: (delayTime?: number, wet?: number, feedback?: number) => void;

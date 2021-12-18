@@ -7,6 +7,9 @@ import { Sidepanel } from 'uikit';
 import { Analyser } from 'features/Analyser';
 import { SourceSelect } from './components/SourceSelect';
 import { Volume } from './components/Volume';
+import { Panning } from './components/Panning';
+import { Pitch } from './components/Pitch';
+import { Detune } from './components/Detune';
 import { SettingsBlock } from './styled';
 
 export function OscSettings(): JSX.Element {
@@ -30,6 +33,15 @@ export function OscSettings(): JSX.Element {
       </SettingsBlock>
       <SettingsBlock>
         <Volume />
+      </SettingsBlock>
+      <SettingsBlock>
+        <Panning />
+      </SettingsBlock>
+      <SettingsBlock>
+        <Pitch />
+      </SettingsBlock>
+      <SettingsBlock>
+        <Detune />
       </SettingsBlock>
     </Sidepanel>
   );

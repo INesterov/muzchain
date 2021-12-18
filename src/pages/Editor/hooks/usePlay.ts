@@ -29,6 +29,8 @@ export const usePlay = () => {
             source : input.settings.source,
             volume: input.settings.volume / 100,
             panning: input.settings.panning,
+            pitch: input.settings.pitch,
+            detune: input.settings.detune,
           });
 
           window['inputs'] = inputsRef.current;

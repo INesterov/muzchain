@@ -14,6 +14,8 @@ export type OSCModule = {
     source: string;
     volume: number;
     panning: number;
+    pitch: number;
+    detune: number;
   }
 }
 

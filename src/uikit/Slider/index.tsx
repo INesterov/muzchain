@@ -7,8 +7,10 @@ import { SlicerContainer, Footer } from './styled';
 type Props = {
   min: number;
   max: number;
+  startPoint?: number;
   value: number;
   label: string;
+  step?: number;
   onChange: (value: number) => void;
 }
 
@@ -18,6 +20,8 @@ export function Slider(props: Props): JSX.Element {
     max,
     value,
     label,
+    startPoint = 0,
+    step = 1,
     onChange,
   } = props;
 
@@ -26,7 +30,8 @@ export function Slider(props: Props): JSX.Element {
       <RClider
         min={min}
         max={max}
-        step={1}
+        startPoint={startPoint}
+        step={step}
         value={value}
         onChange={onChange}
       />

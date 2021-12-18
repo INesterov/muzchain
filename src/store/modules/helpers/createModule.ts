@@ -18,6 +18,8 @@ export const createModule = (options: Options): Module => {
       source: 'sine',
       volume: 50,
       panning: 0,
+      pitch: 440,
+      detune: 0,
     },
   };
 };
